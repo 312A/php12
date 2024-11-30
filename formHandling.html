@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Handling Using Js</title>
+</head>
+<body>
+    <form action="" onsubmit="return valid();">
+        <input type="text" name="" id="Name" placeholder="Name" autocomplete="none">
+        <p id="Nameerr"></p>
+        <input type="email" name="" id="Email" placeholder="Email">
+        <p id="Emailerr"></p>
+        <input type="submit" name="" id="">
+    </form>
+</body>
+<script>
+    flag = 1;
+    function valid(){
+        let Name = document.getElementById('Name').value;
+        let Namereg = /^[a-z]\w{2,23}[^_]$/i;
+        if(Name==''|| Name==null)
+        {
+            document.getElementById('Nameerr').innerHTML = "*name can't be empty";
+            return false;
+        }
+        else if(Name.search(Namereg)<0)
+        {
+            document.getElementById('Nameerr').innerHTML="Name Pattern is not matched";
+            return false;
+        }
+        else{
+            document.getElementById('Nameerr').innerHTML = "Correct";
+            return false;
+        }
+        
+        let Email = document.getElementById('Email').value;
+        let Emailreg = /^[a-zA-z0-9._-]{9}\@gmail\.com/;
+        if(Email = '' || Email==null)
+        {
+            document.getElementById('Emailerr').innerHTML = "*Email can't be empty";
+            return false;
+        }
+        else if(Email.search(Emailreg)<0)
+        {
+            document.getElementById('Emailerr').innerHTML = "*Email is not matched";
+            return false;
+        }
+        else{
+            document.getElementById('Emailerr').innerHTML = "";
+            return false;
+        }
+    }
+
+</script>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validation Using Js</title>
+</head>
+<body>
+    <form action="a.html" onsubmit="return valid()">
+        <input type="text" name="" id="Name" placeholder="Name" autocomplete="none">
+        <p id="Nameerr"></p>
+        <input type="email" name="" id="Email" placeholder="Email">
+        <p id="Emailerr"></p>
+        <input type="number" name="" id="Phone" placeholder="Phone">
+        <p id="Phoneerr"></p>
+        <input type="Password" name="" id="Password" placeholder="Password">
+        <p id="Passworderr"></p>
+        <input type="Password" name="" id="CPassword" placeholder="Confirm Password">
+        <p id="CPassworderr"></p>
+        <input type="submit" name="" id="" >
+    </form>
+    <script>
+        flag = 1;
+        function valid()
+        {
+            let Name = document.getElementById('Name').value;
+            let Namereg = /^[a-zA-Z0-9_-]{5}/;
+            if(Name == '' || Name == null)
+            {
+                document.getElementById('Nameerr').innerHTML="Name can't be empty";
+                 flag=0;
+            }
+            else if(Name.search(Namereg)<0)
+            {
+                document.getElementById('Nameerr').innerHTML="Name Pattern mismatched";
+                flag=0;
+            }
+            else{
+                document.getElementById('Nameerr').innerHTML="";
+                flag=1;
+            }
+
+            //for Email
+            let Email = document.getElementById('Email').value;
+            let Emailreg = '/^[a-zA-Z0-9_-]\@gmail\.com/';
+            if(Email === '' || Email == null)
+            {
+                document.getElementById('Emailerr').innerHTML = "Email Can't be empty";
+                 flag=0;
+            }
+            else if(Email.search(Emailreg)<0)
+            {
+                document.getElementById('Emailerr').innerHTML="Email Pattern Mismatched";
+                flag = 0;
+            }
+            else{
+                document.getElementById('Emailerr').innerHTML="";
+                flag = 1;
+            }
+            if(flag)
+            {
+                return true;
+            }
+            else{
+                return false;
+            
+            }
+        }
+    </script>
+</body>
+
+</html>
